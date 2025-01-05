@@ -1,6 +1,0 @@
-{
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "apps/web/.next/standalone",
-  "devCommand": "pnpm run dev",
-  "installCommand": "pnpm install"
-}
