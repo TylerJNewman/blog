@@ -57,11 +57,11 @@ export async function SiteHeader() {
           </div>
 
           <nav className="flex items-center">
-            <I18nToggle
+            {/* <I18nToggle
               messages={{
                 toggleLanguage: t('buttons.toggle_language'),
               }}
-            />
+            /> */}
 
             <ThemeModeToggle
               messages={{
