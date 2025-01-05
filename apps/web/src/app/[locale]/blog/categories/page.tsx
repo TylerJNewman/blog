@@ -35,7 +35,7 @@ export default async function CategoriesPage({
   const t = await getTranslations()
 
   return (
-    <div className="container relative">
+    <div className="container mx-auto max-w-4xl">
       <PageHeader>
         <PageHeaderHeading>{t('blog.categories.title')}</PageHeaderHeading>
         <PageHeaderDescription>
@@ -43,7 +43,7 @@ export default async function CategoriesPage({
         </PageHeaderDescription>
       </PageHeader>
 
-      <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <section className="grid gap-4 sm:grid-cols-2">
         {blogConfig.categories.map((category) => (
           <Link
             key={category.slug}

@@ -29,7 +29,7 @@ export default async function IndexPage({
   const t = await getTranslations()
 
   return (
-    <div className="container relative">
+    <div className="container mx-auto max-w-4xl">
       <PageHeader>
         <PageHeaderHeading>
           <TextGenerateEffect words={t('site.heading')} />
@@ -56,7 +56,7 @@ export default async function IndexPage({
       </PageHeader>
 
       <section className="flex flex-col gap-4">
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <FeaturedCard
             icon="✍️"
             title="Latest Posts"

@@ -90,7 +90,7 @@ export function PaginatedBlogPosts({
   )
 
   return (
-    <main className="relative max-w-5xl mx-auto space-y-6 grid">
+    <main className="relative mx-auto space-y-6 grid">
       <RSSToggle
         messages={{
           rss_feed: messages.rss_feed,

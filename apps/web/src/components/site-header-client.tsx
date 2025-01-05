@@ -56,49 +56,51 @@ export function SiteHeaderMenuLinks() {
 
 export function HeaderContent({ messages }: HeaderContentProps) {
   return (
-    <header className={'sticky top-0 z-50 w-full backdrop-blur'}>
-      <div className="container flex h-14 max-w-screen-2xl items-center">
-        <MainNav
-          messages={{
-            blog: messages.blog,
-            categories: messages.categories,
-          }}
-        />
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto max-w-5xl">
+        <div className="flex h-14 items-center">
+          <MainNav
+            messages={{
+              blog: messages.blog,
+              categories: messages.categories,
+            }}
+          />
 
-        <MobileNav
-          messages={{
-            menu: messages.menu,
-            toggleMenu: messages.toggleMenu,
-          }}
-          menuLinks={<SiteHeaderMenuLinks />}
-        />
+          <MobileNav
+            messages={{
+              menu: messages.menu,
+              toggleMenu: messages.toggleMenu,
+            }}
+            menuLinks={<SiteHeaderMenuLinks />}
+          />
 
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
-            <CommandMenu
-              messages={{
-                search: messages.search,
-                noResultsFound: messages.noResultsFound,
-                typeCommandOrSearch: messages.typeCommandOrSearch,
-                searchPosts: messages.searchPosts,
-              }}
-            />
-          </div>
-
-          <nav className="flex items-center">
-            <ThemeModeToggle
-              messages={{
-                dark: messages.themes.dark,
-                light: messages.themes.light,
-                system: messages.themes.system,
-              }}
-            />
-
-            <div className="phone:flex hidden items-center">
-              <Separator orientation="vertical" className="mx-1 h-5" />
-              <SiteHeaderMenuLinks />
+          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+            <div className="w-full flex-1 md:w-auto md:flex-none">
+              <CommandMenu
+                messages={{
+                  search: messages.search,
+                  noResultsFound: messages.noResultsFound,
+                  typeCommandOrSearch: messages.typeCommandOrSearch,
+                  searchPosts: messages.searchPosts,
+                }}
+              />
             </div>
-          </nav>
+
+            <nav className="flex items-center">
+              <ThemeModeToggle
+                messages={{
+                  dark: messages.themes.dark,
+                  light: messages.themes.light,
+                  system: messages.themes.system,
+                }}
+              />
+
+              <div className="phone:flex hidden items-center">
+                <Separator orientation="vertical" className="mx-1 h-5" />
+                <SiteHeaderMenuLinks />
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
     </header>
