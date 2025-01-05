@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/card'
 import { blogConfig } from '@/config/blog'
 import { Link } from '@/navigation'
+import { locales } from '@/config/i18n'
 
 import {
   PageHeader,
@@ -24,6 +25,10 @@ const categoryIcons: Record<string, string> = {
 }
 
 export const dynamicParams = true
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
+}
 
 export default async function CategoriesPage({
   params,

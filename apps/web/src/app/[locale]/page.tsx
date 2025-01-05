@@ -7,6 +7,7 @@ import { Icons } from '@/components/icons'
 import { siteConfig } from '@/config/site'
 import { Link } from '@/navigation'
 import { cn } from '@/lib/utils'
+import { locales } from '@/config/i18n'
 
 import {
   PageHeader,
@@ -18,6 +19,10 @@ import {
 import type { LocaleOptions } from '@/lib/opendocs/types/i18n'
 
 export const dynamicParams = true
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
+}
 
 export default async function IndexPage({
   params,

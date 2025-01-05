@@ -9,7 +9,7 @@ import { getObjectValueByLocale } from '@/lib/opendocs/utils/locale'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
-import { defaultLocale } from '@/config/i18n'
+import { defaultLocale, locales } from '@/config/i18n'
 import { siteConfig } from '@/config/site'
 import { fontSans } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
@@ -96,6 +96,10 @@ export async function generateMetadata({
 }
 
 export const dynamicParams = true
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
+}
 
 export const viewport: Viewport = {
   themeColor: [
