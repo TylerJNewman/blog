@@ -4,35 +4,73 @@ export const blogConfig: BlogConfig = {
   mainNav: [
     {
       href: '/blog',
-
       title: {
         en: 'Blog',
+        pt: 'Blog',
+      },
+    },
+    {
+      href: '/blog/categories',
+      title: {
+        en: 'Categories',
+        pt: 'Categorias',
+      },
+    },
+  ],
+
+  categories: [
+    {
+      slug: 'engineering',
+      title: {
+        en: 'Engineering',
+        pt: 'Engenharia',
+      },
+      description: {
+        en: 'Technical deep dives and software engineering best practices',
+        pt: 'Análises técnicas e melhores práticas de engenharia de software',
+      },
+    },
+    {
+      slug: 'product',
+      title: {
+        en: 'Product',
+        pt: 'Produto',
+      },
+      description: {
+        en: 'Product development, design, and user experience',
+        pt: 'Desenvolvimento de produto, design e experiência do usuário',
+      },
+    },
+    {
+      slug: 'thoughts',
+      title: {
+        en: 'Thoughts',
+        pt: 'Pensamentos',
+      },
+      description: {
+        en: 'Personal insights and reflections on technology and life',
+        pt: 'Insights pessoais e reflexões sobre tecnologia e vida',
       },
     },
   ],
 
   authors: [
     {
-      /* the id property must be the same as author_id in the blog post mdx files required for the computed field
-        in contentlayer.config.ts so we can get the author details from the blogConfig by comparing the author_id
-        with the id below
-      */
-      id: 'daltonmenezes',
-      name: 'Dalton Menezes',
-      image: '/authors/daltonmenezes.jpg',
-      site: 'https://daltonmenezes.com',
-      email: 'daltonmenezes@outlook.com',
+      id: 'tylerjnewman',
+      name: 'Tyler Newman',
+      image: '/authors/tylerjnewman.jpg',
+      site: 'https://github.com/TylerJNewman',
+      email: 'tylerjnewman@gmail.com',
 
       bio: {
-        en: 'Software Engineer | Writer | Designer',
-        pt: 'Engenheiro de Software | Escritor | Designer',
+        en: 'Software Engineer | Writer | Open Source Enthusiast',
+        pt: 'Engenheiro de Software | Escritor | Entusiasta Open Source',
       },
 
       social: {
-        github: 'daltonmenezes',
-        twitter: '@daltonmenezes',
-        youtube: 'daltonmenezes',
-        linkedin: 'daltonmenezes',
+        github: 'TylerJNewman',
+        twitter: '@TylerJNewman',
+        linkedin: 'tylerjnewman',
       },
     },
   ],
@@ -43,7 +81,6 @@ export const blogConfig: BlogConfig = {
       file: 'blog.xml',
       contentType: 'application/xml',
     },
-
     {
       type: 'json',
       file: 'blog.json',

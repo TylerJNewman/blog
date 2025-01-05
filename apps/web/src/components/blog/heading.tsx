@@ -3,7 +3,6 @@ import Balancer from 'react-wrap-balancer'
 import type { LocaleOptions } from '@/lib/opendocs/types/i18n'
 import type { Blog } from 'contentlayer/generated'
 
-import { DocNotAvailableInThisLanguage } from '../docs/not-available'
 import { getObjectValueByLocale } from '@/lib/opendocs/utils/locale'
 import { cn, formatDate } from '@/lib/utils'
 import { dateLocales } from '@/config/i18n'
@@ -11,7 +10,7 @@ import { ReadTime } from './read-time'
 
 interface BlogPostHeadingProps {
   locale: LocaleOptions
-  post: Blog & { notAvailable: boolean }
+  post: Blog
 
   messages: {
     by: string
@@ -63,8 +62,6 @@ export function BlogPostHeading({
           <Balancer>{post.excerpt}</Balancer>
         </p>
       )}
-
-      {post.notAvailable && <DocNotAvailableInThisLanguage locale={locale} />}
     </div>
   )
 }

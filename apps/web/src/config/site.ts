@@ -3,7 +3,7 @@ import en from '@/i18n/locales/en.json'
 import pt from '@/i18n/locales/pt.json'
 
 export const siteConfig = {
-  name: 'opendocs',
+  name: 'Tyler Newman',
 
   description: {
     en: en.site.description,
@@ -14,32 +14,27 @@ export const siteConfig = {
 
   og: {
     image: absoluteUrl('/og.jpg'),
-
     size: {
       width: 1200,
       height: 630,
     },
   },
 
-  app: {
-    latestVersion: '3.0.1',
-  },
-
   author: {
-    name: 'Dalton Menezes',
-    site: 'https://daltonmenezes.com',
+    name: 'Tyler Newman',
+    site: 'https://github.com/TylerJNewman',
   },
 
   links: {
     twitter: {
       label: 'Twitter',
-      username: '@daltonmenezes',
-      url: 'https://twitter.com/daltonmenezes',
+      username: '@TylerJNewman',
+      url: 'https://twitter.com/TylerJNewman',
     },
 
     github: {
       label: 'GitHub',
-      url: 'https://github.com/daltonmenezes/opendocs',
+      url: 'https://github.com/TylerJNewman',
     },
   },
 } as const

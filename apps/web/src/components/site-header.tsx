@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 
 import { ThemeModeToggle } from '@/components/theme-mode-toggle'
 import { Separator } from '@/components/ui/separator'
-import { VersionDropdown } from './version-dropdown'
 import { MobileNav } from '@/components/mobile-nav'
 import { MainNav } from '@/components/main-nav'
 import { buttonVariants } from './ui/button'
@@ -25,7 +24,6 @@ export async function SiteHeader() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <MainNav
           messages={{
-            docs: t('words.docs'),
             blog: t('words.blog'),
           }}
         />
@@ -42,12 +40,11 @@ export async function SiteHeader() {
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <CommandMenu
               messages={{
-                docs: t('words.docs'),
                 blog: t('words.blog'),
                 search: t('search.search'),
                 noResultsFound: t('search.no_results_found'),
                 typeCommandOrSearch: t('search.type_command_or_search'),
-                searchDocumentation: t('search.search_documentation'),
+                searchPosts: t('search.search_posts'),
 
                 themes: {
                   dark: t('themes.dark'),
@@ -60,12 +57,6 @@ export async function SiteHeader() {
           </div>
 
           <nav className="flex items-center">
-            <VersionDropdown
-              messages={{
-                changelog: t('changelog'),
-              }}
-            />
-
             <I18nToggle
               messages={{
                 toggleLanguage: t('buttons.toggle_language'),

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useLocale } from 'next-intl'
 
 import {
   Sheet,
@@ -10,8 +11,6 @@ import {
 } from '@/components/ui/sheet'
 
 import { getObjectValueByLocale } from '@/lib/opendocs/utils/locale'
-import { useDocsConfig } from '@/lib/opendocs/hooks/use-docs-config'
-import { DocsSidebarNav } from './docs/sidebar-nav'
 import { ScrollArea } from './ui/scroll-area'
 import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
@@ -19,10 +18,10 @@ import { MobileLink } from './mobile-link'
 import { blogConfig } from '@/config/blog'
 import { usePathname } from '@/navigation'
 import { Button } from './ui/button'
+import type { LocaleOptions } from '@/lib/opendocs/types/i18n'
 
 interface MobileNavProps {
   menuLinks: JSX.Element
-
   messages: {
     menu: string
     toggleMenu: string
@@ -31,10 +30,8 @@ interface MobileNavProps {
 
 export function MobileNav({ messages, menuLinks }: MobileNavProps) {
   const pathname = usePathname()
-  const docsConfig = useDocsConfig()
+  const locale = useLocale() as LocaleOptions
   const [open, setOpen] = useState(false)
-
-  const shouldDisplayDocsSidebarContent = pathname.startsWith('/docs')
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -69,37 +66,14 @@ export function MobileNav({ messages, menuLinks }: MobileNavProps) {
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
             {blogConfig.mainNav?.map((item) => (
-              <MobileLink key={item.href} href="/blog" onOpenChange={setOpen}>
-                {getObjectValueByLocale(item.title, docsConfig.currentLocale)}
+              <MobileLink
+                key={item.href}
+                href={item.href || '/blog'}
+                onOpenChange={setOpen}
+              >
+                {getObjectValueByLocale(item.title, locale)}
               </MobileLink>
             ))}
-
-            {docsConfig.docs.mainNav?.map(
-              (item) =>
-                item.href && (
-                  <MobileLink
-                    key={item.href}
-                    href={item.href}
-                    onOpenChange={setOpen}
-                  >
-                    {getObjectValueByLocale(
-                      item.title,
-                      docsConfig.currentLocale
-                    )}
-                  </MobileLink>
-                )
-            )}
-          </div>
-
-          <div className="flex flex-col space-y-2">
-            {shouldDisplayDocsSidebarContent && (
-              <DocsSidebarNav
-                isMobile
-                locale={docsConfig.currentLocale}
-                items={docsConfig.docs.sidebarNav}
-                handleMobileSidebar={setOpen}
-              />
-            )}
           </div>
         </ScrollArea>
       </SheetContent>

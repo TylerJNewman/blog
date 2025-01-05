@@ -23,10 +23,16 @@ export interface RSSFeed {
   contentType: string
 }
 
+export interface Category {
+  slug: string
+  title: LocalizedRecord
+  description: LocalizedRecord
+}
+
 export interface BlogConfig {
   mainNav: NavItem[]
   authors: PostAuthor[]
-
+  categories: Category[]
   rss: RSSFeed[]
 }
 

@@ -42,26 +42,7 @@ export function AuthorCard({ post }: { post: Blog }) {
             {author?.bio && <CardDescription>{author.bio}</CardDescription>}
           </CardContent>
 
-          <div className="flex flex-wrap items-center w-full pt-2">
-            {author?.site && (
-              <Link
-                aria-label={author.site}
-                title={author.site}
-                href={author.site}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  'text-accent-foreground w-fit',
-                  buttonVariants({
-                    variant: 'ghost',
-                  }),
-                  'px-2'
-                )}
-              >
-                <Globe size={16} />
-              </Link>
-            )}
-
+          <div className="flex gap-1 pt-2">
             {author?.social?.github && (
               <Link
                 aria-label={author?.social?.github}

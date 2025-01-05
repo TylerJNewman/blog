@@ -8,19 +8,17 @@ import '@/styles/mdx.css'
 
 import { PaginatedBlogPosts } from '@/components/blog/paginated-posts'
 import { BlogPostBreadcrumb } from '@/components/blog/breadcrumb'
-import { DashboardTableOfContents } from '@/components/docs/toc'
-import { getTableOfContents } from '@/lib/opendocs/utils/toc'
-import { getBlogFromParams } from '@/lib/opendocs/utils/blog'
 import { BlogPostHeading } from '@/components/blog/heading'
 import { BlogPostTags } from '@/components/blog/post-tags'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { AuthorCard } from '@/components/blog/author'
 import { allBlogs } from 'contentlayer/generated'
 import { defaultLocale } from '@/config/i18n'
-import { Mdx } from '@/components/docs/mdx'
+import { CodeBlock } from '@/components/code-block'
 import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
 import { absoluteUrl } from '@/lib/utils'
+import { getBlogFromParams } from '@/lib/opendocs/utils/blog'
 
 interface BlogPageProps {
   params: {
@@ -189,10 +187,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
     )
   }
 
-  const toc = await getTableOfContents(blogPost.body.raw)
-
   return (
-    <main className="relative space-y-12 lg:gap-10 lg:grid lg:grid-cols-[1fr_250px]">
+    <main className="relative py-6 lg:gap-10 lg:py-10">
       <div className="mx-auto min-w-0 max-w-4xl">
         <BlogPostBreadcrumb
           post={blogPost}
@@ -213,28 +209,12 @@ export default async function BlogPage({ params }: BlogPageProps) {
         <BlogPostTags post={blogPost} />
 
         <div className="pb-12 pt-8">
-          <Mdx code={blogPost.body.code} />
+          <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+            {blogPost.body.code}
+          </article>
         </div>
 
         <AuthorCard post={blogPost} />
-      </div>
-
-      <div className="hidden text-sm lg:block">
-        <div className="sticky top-16 -mt-10 pt-4">
-          <ScrollArea className="pb-10">
-            <div className="sticky top-16 -mt-10 h-fit py-12">
-              <DashboardTableOfContents
-                sourceFilePath={blogPost._raw.sourceFilePath}
-                toc={toc}
-                messages={{
-                  onThisPage: t('docs.on_this_page'),
-                  editPageOnGitHub: t('docs.edit_page_on_github'),
-                  startDiscussionOnGitHub: t('docs.start_discussion_on_github'),
-                }}
-              />
-            </div>
-          </ScrollArea>
-        </div>
       </div>
     </main>
   )

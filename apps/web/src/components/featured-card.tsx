@@ -7,6 +7,7 @@ import {
   CardContent,
   CardDescription,
 } from '@/components/ui/card'
+import { Link } from '@/navigation'
 import { cn } from '@/lib/utils'
 
 type FeaturedCardProps = PropsWithChildren<{
@@ -14,6 +15,7 @@ type FeaturedCardProps = PropsWithChildren<{
   title?: React.ReactNode
   description?: React.ReactNode
   orientation?: 'horizontal' | 'vertical'
+  href?: string
 }>
 
 export function FeaturedCard({
@@ -22,29 +24,54 @@ export function FeaturedCard({
   children,
   description,
   orientation = 'vertical',
+  href,
 }: FeaturedCardProps) {
+  const Wrapper = ({ children }: { children: React.ReactNode }) => {
+    if (href) {
+      return (
+        <Link href={href} className="block">
+          {children}
+        </Link>
+      )
+    }
+    return <>{children}</>
+  }
+
   return (
-    <Card className="backdrop-blur-lg dark:bg-card-primary">
-      <CardHeader
+    <Wrapper>
+      <Card
         className={cn(
-          'flex gap-4 pb-2',
-          orientation === 'horizontal' ? 'flex-row items-center' : 'flex-col'
+          'backdrop-blur-lg dark:bg-card-primary',
+          href &&
+            'transition-all duration-300 hover:bg-muted/50 hover:shadow-md dark:hover:bg-muted/25'
         )}
       >
-        {icon && (
-          <div className="bg-muted/45 flex w-11 items-center justify-center rounded-md px-3 py-2 text-center text-lg">
-            {icon}
-          </div>
-        )}
+        <CardHeader
+          className={cn(
+            'flex gap-4 pb-2',
+            orientation === 'horizontal' ? 'flex-row items-center' : 'flex-col'
+          )}
+        >
+          {icon && (
+            <div
+              className={cn(
+                'bg-muted/45 flex w-11 items-center justify-center rounded-md px-3 py-2 text-center text-lg',
+                href && 'transition-colors group-hover:bg-muted/60'
+              )}
+            >
+              {icon}
+            </div>
+          )}
 
-        {title && <CardTitle>{title}</CardTitle>}
-      </CardHeader>
+          {title && <CardTitle>{title}</CardTitle>}
+        </CardHeader>
 
-      <CardContent className="flex flex-col gap-2">
-        {description && <CardDescription>{description}</CardDescription>}
+        <CardContent className="flex flex-col gap-2">
+          {description && <CardDescription>{description}</CardDescription>}
 
-        {children}
-      </CardContent>
-    </Card>
+          {children}
+        </CardContent>
+      </Card>
+    </Wrapper>
   )
 }
