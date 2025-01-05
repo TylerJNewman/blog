@@ -4,6 +4,10 @@ const { createContentlayerPlugin } = require('next-contentlayer2')
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  output: 'standalone',
+  experimental: {
+    outputFileTracingRoot: require('path').join(__dirname, '../../'),
+  },
 }
 
 const withContentlayer = createContentlayerPlugin({})
