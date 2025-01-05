@@ -57,25 +57,17 @@ export function SiteHeaderMenuLinks() {
 export function HeaderContent({ messages }: HeaderContentProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto max-w-5xl">
-        <div className="flex h-14 items-center">
-          <MainNav
-            messages={{
-              blog: messages.blog,
-              categories: messages.categories,
-            }}
-          />
+      <div className="container mx-auto max-w-5xl py-3">
+        <div className="flex h-14 items-center justify-between">
+          <div className="flex items-center gap-6">
+            <MainNav
+              messages={{
+                blog: messages.blog,
+                categories: messages.categories,
+              }}
+            />
 
-          <MobileNav
-            messages={{
-              menu: messages.menu,
-              toggleMenu: messages.toggleMenu,
-            }}
-            menuLinks={<SiteHeaderMenuLinks />}
-          />
-
-          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-            <div className="w-full flex-1 md:w-auto md:flex-none">
+            <div className="w-full md:w-auto md:flex-none">
               <CommandMenu
                 messages={{
                   search: messages.search,
@@ -85,8 +77,10 @@ export function HeaderContent({ messages }: HeaderContentProps) {
                 }}
               />
             </div>
+          </div>
 
-            <nav className="flex items-center">
+          <div className="flex items-center gap-2">
+            <nav className="flex items-center gap-2">
               <ThemeModeToggle
                 messages={{
                   dark: messages.themes.dark,
@@ -100,6 +94,14 @@ export function HeaderContent({ messages }: HeaderContentProps) {
                 <SiteHeaderMenuLinks />
               </div>
             </nav>
+
+            <MobileNav
+              messages={{
+                menu: messages.menu,
+                toggleMenu: messages.toggleMenu,
+              }}
+              menuLinks={<SiteHeaderMenuLinks />}
+            />
           </div>
         </div>
       </div>

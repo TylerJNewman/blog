@@ -82,9 +82,10 @@ export function RSSToggle({ messages }: RSSToggleProps) {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={type}
-                href={`/${currentLocale}/feed/${file}`}
+                href={`/feed/${file}`}
+                className="w-full cursor-pointer px-2 py-1.5 text-sm"
               >
-                {type}
+                {type.toUpperCase()}
               </ExternalLink>
             </DropdownMenuItem>
           ))}

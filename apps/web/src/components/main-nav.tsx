@@ -16,21 +16,21 @@ export function MainNav({ messages }: MainNavProps) {
   const pathname = usePathname()
 
   return (
-    <div className="mr-4 hidden md:flex">
-      <Link href="/" className="mr-6 flex items-center space-x-2">
-        <Icons.logo className="size-4" />
+    <div className="flex items-center gap-6">
+      <Link href="/" className="flex items-center space-x-2">
+        <Icons.logo className="size-5" />
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
         </span>
       </Link>
 
-      <nav className="flex items-center gap-4 text-sm lg:gap-6">
+      <nav className="flex items-center gap-4">
         <Link
           href="/blog"
           className={cn(
-            'hover:text-foreground/80 transition-colors',
+            'text-sm font-medium transition-colors hover:text-primary',
             pathname.includes('/blog') && !pathname.includes('/categories')
-              ? 'dark:text-primary-active'
+              ? 'text-foreground'
               : 'text-foreground/60'
           )}
         >
@@ -39,9 +39,9 @@ export function MainNav({ messages }: MainNavProps) {
         <Link
           href="/blog/categories"
           className={cn(
-            'hover:text-foreground/80 transition-colors',
+            'text-sm font-medium transition-colors hover:text-primary',
             pathname.includes('/categories')
-              ? 'dark:text-primary-active'
+              ? 'text-foreground'
               : 'text-foreground/60'
           )}
         >

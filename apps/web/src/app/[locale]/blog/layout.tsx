@@ -17,5 +17,9 @@ export default async function BlogLayout({
 }: BlogLayoutProps) {
   unstable_setRequestLocale(params.locale)
 
-  return <div className="container mx-auto max-w-4xl">{children}</div>
+  return (
+    <main className="relative py-6 lg:py-10">
+      <div className="container mx-auto max-w-5xl">{children}</div>
+    </main>
+  )
 }

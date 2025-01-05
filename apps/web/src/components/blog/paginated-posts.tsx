@@ -90,7 +90,7 @@ export function PaginatedBlogPosts({
   )
 
   return (
-    <main className="relative mx-auto space-y-6 grid">
+    <div className="space-y-6">
       <RSSToggle
         messages={{
           rss_feed: messages.rss_feed,
@@ -165,6 +165,6 @@ export function PaginatedBlogPosts({
         messages={messages}
         numberOfPages={totalOfPages}
       />
-    </main>
+    </div>
   )
 }

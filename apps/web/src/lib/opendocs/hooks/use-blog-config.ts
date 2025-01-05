@@ -20,6 +20,7 @@ export function useBlogConfig() {
       mainNav: [],
       authors: [],
       rss: [],
+      categories: [],
     },
   })
 

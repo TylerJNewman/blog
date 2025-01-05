@@ -29,49 +29,51 @@ export default async function IndexPage({
   const t = await getTranslations()
 
   return (
-    <div className="container mx-auto max-w-4xl">
-      <PageHeader>
-        <PageHeaderHeading>
-          <TextGenerateEffect words={t('site.heading')} />
-        </PageHeaderHeading>
+    <main className="relative py-6 lg:py-10">
+      <div className="container mx-auto max-w-5xl space-y-6">
+        <PageHeader>
+          <PageHeaderHeading className="font-bold">
+            <TextGenerateEffect words={t('site.heading')} />
+          </PageHeaderHeading>
 
-        <PageHeaderDescription>{t('site.description')}</PageHeaderDescription>
+          <PageHeaderDescription>{t('site.description')}</PageHeaderDescription>
 
-        <PageActions>
-          <Link href="/blog" className={cn(buttonVariants())}>
-            {t('site.buttons.read_blog')}
-          </Link>
+          <PageActions>
+            <Link href="/blog" className={cn(buttonVariants())}>
+              {t('site.buttons.read_blog')}
+            </Link>
 
-          <Link
-            target="_blank"
-            rel="noreferrer"
-            href={siteConfig.links.github.url}
-            title={siteConfig.links.github.label}
-            className={cn(buttonVariants({ variant: 'outline' }))}
-          >
-            <Icons.gitHub className="mr-2 size-4" />
-            {siteConfig.links.github.label}
-          </Link>
-        </PageActions>
-      </PageHeader>
+            <Link
+              target="_blank"
+              rel="noreferrer"
+              href={siteConfig.links.github.url}
+              title={siteConfig.links.github.label}
+              className={cn(buttonVariants({ variant: 'outline' }))}
+            >
+              <Icons.gitHub className="mr-2 size-4" />
+              {siteConfig.links.github.label}
+            </Link>
+          </PageActions>
+        </PageHeader>
 
-      <section className="flex flex-col gap-4">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <FeaturedCard
-            icon="✍️"
-            title="Latest Posts"
-            description={t('site.featured_cards.blog.latest')}
-            href="/blog"
-          />
+        <section className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <FeaturedCard
+              icon="✍️"
+              title="Latest Posts"
+              description={t('site.featured_cards.blog.latest')}
+              href="/blog"
+            />
 
-          <FeaturedCard
-            icon="📚"
-            title="Categories"
-            description={t('site.featured_cards.blog.categories')}
-            href="/blog/categories"
-          />
-        </div>
-      </section>
-    </div>
+            <FeaturedCard
+              icon="📚"
+              title="Categories"
+              description={t('site.featured_cards.blog.categories')}
+              href="/blog/categories"
+            />
+          </div>
+        </section>
+      </div>
+    </main>
   )
 }

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { allBlogs, allDocs } from 'contentlayer/generated'
+import { allBlogs } from 'contentlayer/generated'
 import { absoluteUrl } from '@/lib/utils'
 import { locales } from '@/config/i18n'
 
@@ -11,44 +11,34 @@ export default function sitemap(): Sitemap {
     {
       url: absoluteUrl(`/`),
       lastModified: new Date(),
-
       alternates: {
         languages: Object.fromEntries(
           locales.map((locale) => [locale, absoluteUrl(`/${locale}`)])
         ),
       },
     },
-
     {
-      url: absoluteUrl(`/docs`),
+      url: absoluteUrl(`/blog`),
       lastModified: new Date(),
-
       alternates: {
         languages: Object.fromEntries(
-          locales.map((locale) => [locale, absoluteUrl(`/${locale}/docs`)])
+          locales.map((locale) => [locale, absoluteUrl(`/${locale}/blog`)])
         ),
       },
     },
-  ]
-
-  const docPaths: Sitemap = allDocs.map((doc) => {
-    const [, ...docSlugList] = doc.slugAsParams.split('/')
-    const docSlug = docSlugList.join('/') || ''
-
-    return {
-      url: absoluteUrl(`/docs/${docSlug}`),
+    {
+      url: absoluteUrl(`/blog/categories`),
       lastModified: new Date(),
-
       alternates: {
         languages: Object.fromEntries(
           locales.map((locale) => [
             locale,
-            absoluteUrl(`/${locale}/docs/${docSlug}`),
+            absoluteUrl(`/${locale}/blog/categories`),
           ])
         ),
       },
-    }
-  })
+    },
+  ]
 
   const blogPaths: Sitemap = allBlogs.map((post) => {
     const [, ...postSlugList] = post.slugAsParams.split('/')
@@ -57,7 +47,6 @@ export default function sitemap(): Sitemap {
     return {
       url: absoluteUrl(`/blog/${postSlug}`),
       lastModified: new Date(),
-
       alternates: {
         languages: Object.fromEntries(
           locales.map((locale) => [
@@ -69,5 +58,5 @@ export default function sitemap(): Sitemap {
     }
   })
 
-  return [...paths, ...docPaths, ...blogPaths]
+  return [...paths, ...blogPaths]
 }

@@ -189,7 +189,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
   return (
     <main className="relative py-6 lg:gap-10 lg:py-10">
-      <div className="mx-auto min-w-0 max-w-4xl">
+      <div className="mx-auto min-w-0 max-w-5xl">
         <BlogPostBreadcrumb
           post={blogPost}
           messages={{

@@ -5,7 +5,6 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-  CardContent,
 } from '@/components/ui/card'
 import { blogConfig } from '@/config/blog'
 import { Link } from '@/navigation'
@@ -35,37 +34,42 @@ export default async function CategoriesPage({
   const t = await getTranslations()
 
   return (
-    <div className="container mx-auto max-w-4xl">
+    <div className="space-y-6">
       <PageHeader>
-        <PageHeaderHeading>{t('blog.categories.title')}</PageHeaderHeading>
-        <PageHeaderDescription>
+        <PageHeaderHeading className="font-bold">
           {t('blog.categories.description')}
-        </PageHeaderDescription>
+        </PageHeaderHeading>
       </PageHeader>
 
-      <section className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2">
         {blogConfig.categories.map((category) => (
           <Link
             key={category.slug}
             href={`/blog/category/${category.slug}`}
-            className="block transition-colors hover:bg-muted/50"
+            className="transition-colors hover:bg-muted/50"
           >
-            <Card className="h-full backdrop-blur-lg dark:bg-card-primary">
+            <Card className="h-full border-2 bg-card hover:bg-card/50">
               <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="bg-muted/45 flex w-11 items-center justify-center rounded-md px-3 py-2 text-center text-lg">
-                    {categoryIcons[category.slug]}
+                <div className="flex items-center gap-4">
+                  <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-lg">
+                    <span className="text-xl">
+                      {categoryIcons[category.slug]}
+                    </span>
                   </div>
-                  <CardTitle>{category.title[params.locale]}</CardTitle>
+                  <div className="space-y-1">
+                    <CardTitle className="text-xl">
+                      {category.title[params.locale]}
+                    </CardTitle>
+                    <CardDescription className="text-sm text-muted-foreground">
+                      {category.description[params.locale]}
+                    </CardDescription>
+                  </div>
                 </div>
-                <CardDescription>
-                  {category.description[params.locale]}
-                </CardDescription>
               </CardHeader>
             </Card>
           </Link>
         ))}
-      </section>
+      </div>
     </div>
   )
 }
