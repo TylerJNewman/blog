@@ -1,72 +1,81 @@
-# opendocs
+# Tyler Newman's Blog
 
-> Next.js beautifully designed template that you can use for your projects for free with site, blog and docs support. Accessible. Customizable. Open Source.
+> A personal blog built with Next.js, featuring a modern design, internationalization, and a great writing experience.
 
 <p align="center">
-  <a href="#opendocs">
+  <a href="https://tylerjnewman.com">
     <img alt="preview" src="./apps/web/public/og.jpg" width="100%">
-  </a>
-</p>
-
-<p align="center">
-  <!-- GitHub -->
-  <a href="https://github.com/sponsors/daltonmenezes">
-    <img alt="github url" src="https://img.shields.io/badge/support%20on-github-1C1E26?style=for-the-badge&labelColor=1C1E26&color=a277ff"/>
-  </a>
-  <!-- Patreon -->
-  <a href="https://www.patreon.com/daltonmenezes">
-    <img alt="patreon url" src="https://img.shields.io/badge/support%20on-patreon-1C1E26?style=for-the-badge&labelColor=1C1E26&color=50e1c7"/>
-  </a>
-  <!-- Version -->
-  <a href="https://github.com/daltonmenezes/opendocs/releases">
-     <img alt="releases url" src="https://img.shields.io/github/v/release/daltonmenezes/opendocs.svg?style=for-the-badge&labelColor=1C1E26&color=a277ff"/>
-  </a>
-  <!-- License -->
-  <a href="https://github.com/daltonmenezes/opendocs/blob/main/LICENSE.md">
-    <img alt="license url" src="https://img.shields.io/badge/license%20-MIT-1C1E26?style=for-the-badge&labelColor=1C1E26&color=50e1c7"/>
   </a>
 </p>
 
 ## 🎉 Features
 
-- 🕸️ Site
-- 📄 Docs
 - ✍️ Blog
+  - 📚 Categories (Engineering, Product, Thoughts)
   - 🔖 Tags
   - 📟 Pagination
-  - 🍕 RSS Feed 2.0 (xml and json)
-  - ⏱️ Minutes read time estimation
-  - 🧬 Dynamic or provided OG images for blog posts
-- 🌎 i18n
-- 💬 MDX
-- 📍 Sitemap
-- 🔍 SEO
-- 🌓 Dark/Light mode
-- 💅 Tailwind CSS
-- 🧱 Shadcn components
-- 📐 Responsive
-- 🧬 Accessible
-- 🤖 Customizable
-- 🚀 Open Source
+  - ⏱️ Reading time estimation
+  - 🧬 Dynamic OG images for blog posts
+- 🌎 Internationalization
+  - 🇺🇸 English
+  - 🇧🇷 Portuguese
+- 💬 MDX Support
+- 🎨 Modern Design
+  - 🌓 Dark/Light mode
+  - 💅 Tailwind CSS
+  - 🧱 Shadcn/ui components
+  - 📐 Responsive layout
+- 🔍 SEO Optimized
+- 🚀 Built with
+  - Next.js 14
+  - React 18
+  - TypeScript
+  - Contentlayer
+  - next-intl
 
-and more...
+## 🚀 Getting Started
 
-## 📄 Documentation
+1. Clone the repository:
+```bash
+git clone https://github.com/TylerJNewman/blog.git
+```
 
-Visit https://opendocs.daltonmenezes.com/docs to view the documentation.
+2. Install dependencies:
+```bash
+pnpm install
+```
 
-## 💬 Contributing
+3. Run the development server:
+```bash
+pnpm dev
+```
 
-> **Note**: contributions are always welcome, but always **ask first**, — please — before work on a PR.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-That said, there's a bunch of ways you can contribute to this project, like by:
+## 📝 Writing Content
 
-- :beetle: Reporting a bug
-- :page_facing_up: Improving the docs
-- :rotating_light: Sharing this project and recommending it to your friends
-- :dollar: Supporting this project on GitHub Sponsors or Patreon
-- :star2: Giving a star on this repository
+Blog posts are written in MDX and stored in the `content/blog` directory. Each post should include frontmatter with the following fields:
 
-## License
+```yaml
+---
+title: Your Post Title
+excerpt: A brief description of your post
+date: YYYY-MM-DD
+tags: [tag1, tag2]
+author:
+  name: Your Name
+  site: https://yoursite.com
+---
+```
 
-Licensed under the [MIT license](https://github.com/daltonmenezes/opendocs/blob/main/LICENSE.md).
+## 🏗️ Deployment
+
+The site is deployed on Vercel. For deployment:
+
+1. Push to the main branch
+2. Set the root directory to `apps/web` in Vercel
+3. Vercel will automatically build and deploy the site
+
+## 📄 License
+
+Licensed under the MIT license.
