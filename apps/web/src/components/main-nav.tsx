@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 interface MainNavProps {
   messages: {
     blog: string
+    categories: string
   }
 }
 
@@ -28,12 +29,23 @@ export function MainNav({ messages }: MainNavProps) {
           href="/blog"
           className={cn(
             'hover:text-foreground/80 transition-colors',
-            pathname.includes('/blog')
+            pathname.includes('/blog') && !pathname.includes('/categories')
               ? 'dark:text-primary-active'
               : 'text-foreground/60'
           )}
         >
           {messages.blog}
+        </Link>
+        <Link
+          href="/blog/categories"
+          className={cn(
+            'hover:text-foreground/80 transition-colors',
+            pathname.includes('/categories')
+              ? 'dark:text-primary-active'
+              : 'text-foreground/60'
+          )}
+        >
+          {messages.categories}
         </Link>
       </nav>
     </div>
