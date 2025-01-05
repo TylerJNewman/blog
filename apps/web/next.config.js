@@ -4,7 +4,11 @@ const { createContentlayerPlugin } = require('next-contentlayer2')
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  distDir: '.next',
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+  distDir: 'dist',
 }
 
 const withContentlayer = createContentlayerPlugin({})
