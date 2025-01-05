@@ -1,5 +1,0 @@
-{
-  "framework": "nextjs",
-  "workspaceRoot": "apps/web",
-  "outputDirectory": "apps/web/dist"
-}
